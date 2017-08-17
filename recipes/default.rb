@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: nut
+# Cookbook:: nut
 # Recipe:: default
 #
 # Author:: Ceaser Larry (<clarry@divergentlogic.com>)
@@ -20,24 +20,15 @@
 #
 
 package 'nut'
-# Precise creates the user and group called 'nut'
 package 'nut-snmp'
 
 service 'nut-server' do
-  if node['platform_version'].to_f >= 14.04
-    service_name 'nut-server'
-  else
-    service_name 'nut'
-  end
+  service_name 'nut-server'
   supports start: true, stop: true, reload: true, restart: true, status: true
 end
 
 service 'nut-client' do
-  if node['platform_version'].to_f >= 14.04
-    service_name 'nut-client'
-  else
-    service_name 'nut'
-  end
+  service_name 'nut-client'
   supports start: true, stop: true, reload: true, restart: true, status: true
 end
 
@@ -105,51 +96,30 @@ case node['nut']['mode']
 when 'netserver'
 
   service 'client' do
-    if node['platform_version'].to_f >= 14.04
-      service_name 'nut-client'
-    else
-      service_name 'nut'
-    end
+    service_name 'nut-client'
     action [:enable, :start]
     not_if { node['nut']['monitors'].nil? }
   end
   service 'server' do
-    if node['platform_version'].to_f >= 14.04
-      service_name 'nut-server'
-    else
-      service_name 'nut'
-    end
+    service_name 'nut-server'
     action [:enable, :start]
   end
-
 
 when 'netclient'
 
   service 'client' do
-    if node['platform_version'].to_f >= 14.04
-      service_name 'nut-client'
-    else
-      service_name 'nut'
-    end
+    service_name 'nut-client'
     action [:enable, :start]
   end
 
 when 'standalone'
 
   service 'client' do
-    if node['platform_version'].to_f >= 14.04
-      service_name 'nut-client'
-    else
-      service_name 'nut'
-    end
+    service_name 'nut-client'
     action [:enable, :start]
   end
   service 'server' do
-    if node['platform_version'].to_f >= 14.04
-      service_name 'nut-server'
-    else
-      service_name 'nut'
-    end
+    service_name 'nut-server'
     action [:enable, :start]
   end
 

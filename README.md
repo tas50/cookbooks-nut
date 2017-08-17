@@ -14,8 +14,6 @@ Installs and configures Network UPS Tools.
 * Debian, Ubuntu
 
 Tested on:
-
-* Ubuntu 12.04 (Precise Penguin)
 * Ubuntu 14.04 (Trusty Tahr)
 
 Unsupported:
