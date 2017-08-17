@@ -15,10 +15,8 @@ Installs and configures Network UPS Tools.
 
 Tested on:
 * Ubuntu 14.04 (Trusty Tahr)
+* Ubuntu 16.04 ( Xenial Xerus)
 
-Unsupported:
-
-* Ubuntu 13.04
 
 # Attributes
 

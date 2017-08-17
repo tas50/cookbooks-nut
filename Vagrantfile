@@ -58,15 +58,15 @@ Vagrant.configure(2) do |config|
           'apc' => {
             'driver' => 'usbhid-ups',
             'port' => 'auto',
-            'desc' => 'Back-UPS XS 1500'
-          }
+            'desc' => 'Back-UPS XS 1500',
+          },
         },
 
         'users' => {
           'vagrant' => {
             'password' => 'vagrant',
-            'upsmod master' => true
-          }
+            'upsmod master' => true,
+          },
         },
 
         'monitors' => {
@@ -85,11 +85,11 @@ Vagrant.configure(2) do |config|
 
             'username' => 'vagrant',
             'password' => 'vagrant',
-            'role' => 'master'
-          }
-        }
+            'role' => 'master',
+          },
+        },
 
-      }
+      },
     }
 
     chef.run_list = ['nut::default']
